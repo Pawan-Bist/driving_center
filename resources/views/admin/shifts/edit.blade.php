@@ -74,16 +74,17 @@
 <!-- Css and Js files inclusion -->
 
 @section ('css')
-<link rel="stylesheet" type="text/css" href="{{asset('clockpicker/assets/css/bootstrap.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('clockpicker/dist/bootstrap-clockpicker.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('clockpicker/assets/css/github.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/bower/clockpicker/assets/css/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/bower/clockpicker/dist/bootstrap-clockpicker.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/bower/clockpicker/assets/css/github.min.css')}}">
 @stop
 
 @section('js')
-<script type="text/javascript" src="{{asset('clockpicker/assets/js/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('clockpicker/assets/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('clockpicker/dist/bootstrap-clockpicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/bower/clockpicker/assets/js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/bower/clockpicker/assets/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/bower/clockpicker/dist/bootstrap-clockpicker.min.js')}}"></script>
 <script type="text/javascript">
+
 
 $(document).ready(function(){
 
