@@ -51,14 +51,14 @@
     
 @section('css')
 <!-- Bootstrap CSS -->
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+<link href="{{asset('assets/bower/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('assets/bower/datatables/media/css/jquery.dataTables.min.css')}}">
 @stop
 
 @section('js')
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="{{asset('assets/bower/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('assets/bower/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/bower/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 @stop
 
 @endsection

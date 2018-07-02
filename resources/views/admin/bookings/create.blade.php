@@ -99,7 +99,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/bower/pikaday/css/pikaday.css')}}"/>
 @stop
 @section('js')
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{asset('assets/bower/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('assets/bower/pikaday/pikaday.js')}}"></script>
     <script src="{{asset('assets/bower/pikaday/plugins/pikaday.jquery.js')}}"></script>
     <script>
