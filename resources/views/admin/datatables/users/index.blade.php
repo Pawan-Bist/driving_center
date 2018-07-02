@@ -1,4 +1,4 @@
-@extends('layouts.admin.datatable')
+@extends('layouts.admin.datatables')
 
 
 @section('content')
@@ -10,6 +10,7 @@
                 <th>Email</th>
                 <th>Created At</th>
                 <th>Updated At</th>
+                <th>Action</th>
             </tr>
         </thead>
     </table>
@@ -21,7 +22,7 @@ $(function() {
     $('#users-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{!! route('admin.users.data') !!}',
+        ajax: '{!! url("admin/userajax") !!}',
         columns: [
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },

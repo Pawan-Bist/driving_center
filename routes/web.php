@@ -35,6 +35,11 @@ Route::group(['prefix'=>'/admin','middleware'=>'auth'],function(){
     //Dashboard routing
     Route::resource('/dashboard','DashboardController');
 
-    Route::get('/userajax','DatatableController@userAjax');
-    Route::get('/userdata','DatatableController@userData');
+    Route::get('/usersajax','DatatablesController@getUserAjax');
+    Route::get('/usersdata','DatatablesController@getUserData');
+
+    // Route::controller('datatables', 'DatatablesController', [
+    //     'anyData'  => 'datatables.data',
+    //     'getIndex' => 'datatables',
+    // ]);
 });

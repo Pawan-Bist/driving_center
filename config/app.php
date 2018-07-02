@@ -173,7 +173,7 @@ return [
         /**
          * Yajra datatables provider
          */
-        Yajra\DataTables\DataTablesServiceProvider::class,
+        Yajra\Datatables\DataTablesServiceProvider::class,
 
     ],
 
