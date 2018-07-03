@@ -22,7 +22,8 @@ class CreateCoursesTable extends Migration
             $table->integer('duration_type_id')->unsigned();
             $table->foreign('duration_type_id')->references('id')->on('duration_types');
             $table->boolean('availability')->default(true);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

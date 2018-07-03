@@ -21,7 +21,8 @@ class CreateTrainersTable extends Migration
             $table->text('address');
             $table->text('contact_no');
             $table->boolean('status')->default(true);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

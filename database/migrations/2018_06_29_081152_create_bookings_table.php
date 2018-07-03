@@ -24,7 +24,8 @@ class CreateBookingsTable extends Migration
             $table->foreign('trainer_id')->references('id')->on('trainers');
             $table->integer('shift_id')->unsigned();
             $table->foreign('shift_id')->references('id')->on('shifts');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

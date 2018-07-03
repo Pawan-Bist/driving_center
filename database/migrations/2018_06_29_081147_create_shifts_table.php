@@ -19,7 +19,8 @@ class CreateShiftsTable extends Migration
             $table->text('start');
             $table->string('code',2);
             $table->text('end');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('created_at')->nullable();
         });
     }
 

@@ -63,7 +63,7 @@
                     <select name="duration_type_id" class="form-control">
                         <option >Select duration type</option>
                         @foreach($duration_types as $duration_type)
-                            <option value="{{$duration_type->id}}">{{$duration_type->type}}</option>
+                            <option value="{{$duration_type->id}}">{{$duration_type->name}}</option>
                         @endforeach
                     </select>
                     <!-- @if($errors->first('duration_type_id'))
