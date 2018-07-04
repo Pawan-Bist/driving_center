@@ -23,9 +23,9 @@ class CreateEnquiriesTable extends Migration
             $table->text('address');
             $table->text('contact_no');
             $table->text('date_of_birth');
-            $table->text('remarks');
+            $table->text('remarks')->nullable();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

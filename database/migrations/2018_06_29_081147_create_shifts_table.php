@@ -16,11 +16,11 @@ class CreateShiftsTable extends Migration
         Schema::create('shifts', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
-            $table->text('start');
             $table->string('code',2);
+            $table->text('start');
             $table->text('end');
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

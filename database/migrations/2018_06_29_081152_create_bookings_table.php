@@ -25,7 +25,7 @@ class CreateBookingsTable extends Migration
             $table->integer('shift_id')->unsigned();
             $table->foreign('shift_id')->references('id')->on('shifts');
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

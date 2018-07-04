@@ -22,7 +22,7 @@ class CreateTrainersTable extends Migration
             $table->text('contact_no');
             $table->boolean('status')->default(true);
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

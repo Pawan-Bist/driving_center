@@ -18,7 +18,7 @@ class CreateDurationTypesTable extends Migration
             $table->text('name');
             $table->char('code');
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
