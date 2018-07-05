@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Shift;
+
 use Illuminate\Http\Request;
+use App\Http\Requests\ShiftFormRequest;
 
 class ShiftController extends Controller
 {
@@ -35,7 +37,7 @@ class ShiftController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ShiftFormRequest $request)
     {
         $shift=new Shift();
         $shift->name=$request->input('name');
@@ -43,7 +45,12 @@ class ShiftController extends Controller
         $shift->start=$request->input('start');
         $shift->end=$request->input('end');
         $shift->name=$request->input('name');
+
         $shift->save();
+
+        if($request->has('snc')){
+            return redirect('admin/shifts/create');
+        }
 
         return redirect('admin/shifts');
     }
@@ -79,7 +86,7 @@ class ShiftController extends Controller
      * @param  \App\Shift  $shift
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shift $shift)
+    public function update(ShiftFormRequest $request, Shift $shift)
     {
         $shift->name=$request->input('name');
         $shift->code=$request->input('code');

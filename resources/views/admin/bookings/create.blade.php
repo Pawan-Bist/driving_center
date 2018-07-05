@@ -3,7 +3,14 @@
 @section('title', 'Add new booking')
 
 @section('content_header')
-    <h1>Add new booking</h1>
+    <div>
+        <h1>Add Booking</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/bookings"><i class="fa fa-book"></i>Bookings</a></li>
+        <li class="active">Add</li>
+    </ol>
 @stop
 
 @section('content')
@@ -15,7 +22,7 @@
                     <select name="enquiry_id" class="form-control">
                         <option >Select the enquirer:</option>
                         @foreach ($enquirers as $enquirer)
-                        <option value="{{$enquirer->id}}">{{$enquirer->fullName()}} for {{$enquirer->course->name}}</option>
+                        <option value="{{$enquirer->id}}">{{$enquirer->fullName()}} for ({{$enquirer->course->vehicle->name}}) {{$enquirer->course->name}}</option>
                         @endforeach
                     </select>
                     <!-- @if($errors->first('course_id'))
@@ -91,6 +98,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" name="snc" class="btn btn-primary">Save and Continue</button>
         <a href="{{url('admin/bookings')}}" class="btn btn-danger">Back</a>
     {!!Form::close()!!}
 @stop

@@ -1,20 +1,20 @@
 @extends('adminlte::page')
 
-@section('title', 'Total shiifts on a day')
+@section('title', 'Total vehicles')
 
 @section('content_header')
     <div>
-        <h1>Shifts</h1>
+        <h1>Vehicles</h1>
     </div>
     <ol class="breadcrumb">
         <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-        <li class="active"><i class="fa fa-dollar"></i> Shifts</li>
+        <li class="active"><i class="fa fa-text-car"></i> Vehicles</li>
     </ol>
 @stop
 
 @section('content')
     <!-- <div class="pull-right">
-            <a href="{{url('admin/shifts/create')}}" class="btn btn-primary btn-xs" title="Add a new shift">
+            <a href="{{url('admin/vehicles/create')}}" class="btn btn-primary btn-xs" title="Add a new vehicle">
                 <span class="glyphicon glyphicon-plus"></span>
             </a>
     </div> -->
@@ -22,21 +22,17 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Code</th>
-            <th>Start Time</th>
-            <th>End Time</th>
+            <th>Created At</th>
             <th>Action</th>
         </tr>
-    @foreach ($shifts as $shift)
+    @foreach ($vehicles as $vehicle)
         <tr>
-            <td>{{$shift->id}}</td>
-            <td>{{$shift->name}}</td>
-            <td>{{$shift->code}}</td>
-            <td>{{$shift->start}}</td>
-            <td>{{$shift->end}}</td>
+            <td>{{$vehicle->id}}</td>
+            <td>{{$vehicle->name}}</td>
+            <td>{{$vehicle->created_at}}</td>
             <td>
-                    <form method="post" action="{{url('admin/shifts/'.$shift->id)}}">
-                        <a href="{{url('admin/shifts/'.$shift->id.'/edit')}}" class="btn btn-success btn-xs" title="Edit A shift">
+                    <form method="post" action="{{url('admin/vehicles/'.$vehicle->id)}}">
+                        <a href="{{url('admin/vehicles/'.$vehicle->id.'/edit')}}" class="btn btn-success btn-xs" title="Edit A vehicle">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
                         {{csrf_field()}}
@@ -57,13 +53,7 @@
 @section('css')
 <!-- Bootstrap CSS -->
 <link href="{{asset('assets/bower/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-<link rel="stylesheet" href="{{asset('assets/bower/datatables/media/css/jquery.dataTables.min.css')}}">
 @stop
 
-@section('js')
-<script src="{{asset('assets/bower/jquery/dist/jquery.min.js')}}"></script>
-<script src="{{asset('assets/bower/datatables/media/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/bower/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-@stop
 
 @endsection

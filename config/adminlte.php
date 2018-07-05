@@ -193,7 +193,7 @@ return [
         ],
         [
             'text'        => 'Shifts',
-            'url'         => 'admin/shifts',
+            // 'url'         => 'admin/shifts',
             'icon'        => 'dollar',
             // 'label'       => 4,
             // 'label_color' => 'success',
@@ -206,6 +206,44 @@ return [
                 [
                     'text'      =>      'Add new',
                     'url'       =>      'admin/shifts/create',
+                    'icon'      =>      'plus'
+                ],
+            ]
+        ],
+        [
+            'text'        => 'Vehicles',
+            // 'url'         => 'admin/vehicles',
+            'icon'        => 'car',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
+            'submenu'     => [
+                [
+                    'text'      =>      'List all',
+                    'url'       =>      'admin/vehicles',
+                    'icon'      =>      'list-alt'
+                ],
+                [
+                    'text'      =>      'Add new',
+                    'url'       =>      'admin/vehicles/create',
+                    'icon'      =>      'plus'
+                ],
+            ]
+        ],
+        [
+            'text'        => 'Duration Types',
+            // 'url'         => 'admin/vehicles',
+            'icon'        => 'adjust',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
+            'submenu'     => [
+                [
+                    'text'      =>      'List all',
+                    'url'       =>      'admin/durationtypes',
+                    'icon'      =>      'list-alt'
+                ],
+                [
+                    'text'      =>      'Add new',
+                    'url'       =>      'admin/durationtypes/create',
                     'icon'      =>      'plus'
                 ],
             ]

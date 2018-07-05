@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\DurationType;
+use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Requests\CourseFormRequest;
 
@@ -17,9 +18,17 @@ class CourseController extends Controller
      */
     public function index()
     {
+        $courses1=Course::all();
+        $descriptions=Course::all()->pluck('description');
+
+        foreach($descriptions as $description){
+            $i=0;
+            $courses2[$description]=$courses1[$i];
+            $i++;
+        }
+        // dd($courses2);
         return view('admin.courses.index',[
-            'courses'=>Course::all(),
-            // 'duration_types'=>DurationType::all()
+            'courses'=>$courses2,
         ]);
     }
 
@@ -31,7 +40,8 @@ class CourseController extends Controller
     public function create()
     {   
         return view('admin.courses.create',[
-            'duration_types'=>DurationType::all()
+            'duration_types'=>DurationType::all(),
+            'vehicles'=>Vehicle::all(),
         ]);
     }
 
@@ -44,6 +54,7 @@ class CourseController extends Controller
     public function store(CourseFormRequest $request)
     {
         $course=new Course();
+        $course->vehicle_id=$request->input('vehicle_id');
         $course->name=$request->input('name');
         $course->description=$request->input('description');
         $course->fee=$request->input('fee');
@@ -52,6 +63,10 @@ class CourseController extends Controller
         $course->availability=$request->input('availability');
 
         $course->save();
+
+        if($request->has('snc')){
+            return redirect('admin/courses/create');
+        }
 
         return redirect('admin/courses');
     }
@@ -77,7 +92,8 @@ class CourseController extends Controller
     {
         return view('admin.courses.edit',[
             'course'=>Course::findOrFail($id),
-            'duration_types'=>DurationType::all()
+            'duration_types'=>DurationType::all(),
+            'vehicles'=>Vehicle::all(),
         ]);
     }
 
@@ -90,6 +106,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        $course->vehicle_id=$request->input('vehicle_id');
         $course->name=$request->input('name');
         $course->description=$request->input('description');
         $course->fee=$request->input('fee');

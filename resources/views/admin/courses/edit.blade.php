@@ -3,12 +3,35 @@
 @section('title', 'Edit Course Information')
 
 @section('content_header')
-    <h1>Edit A Course</h1>
+    <div>
+        <h1>Edit A Course</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/courses"><i class="fa fa-copyright"></i>Courses</a></li>
+        <li class="active">Edit</li>
+    </ol>
 @stop
 
 @section('content')
     {!!Form::open(['url'=>'admin/courses/'.$course->id,'method'=>'put'])!!}
-        <div class="row">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vehicle</label>
+                        <select name="vehicle_id" class="form-control">
+                            <option >Select vehicle</option>
+                            @foreach($vehicles  as $vehicle)
+                                <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
+                            @endforeach
+                        </select>
+                        <!-- @if($errors->first('vehicle_id'))
+                            <div class="label label-danger">
+                                {{$errors->first('vehicle_id')}}
+                            </div>
+                        @endif -->
+                        </div>
+                    </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Course Name</label>
@@ -20,17 +43,7 @@
                         @endif -->
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Fee</label>
-                        <input type="text" name="fee" value="{{$course->fee}}" class="form-control" pattern="[0-9]+"/>
-                        <!-- @if($errors->first('fee'))
-                            <div class="label label-danger">
-                                {{$errors->first('fee')}}
-                            </div>
-                        @endif -->
-                    </div>
-                </div>
+                
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -46,7 +59,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Duration</label>
                         <input type="textarea" name="duration"  value="{{$course->duration}}" class="form-control"/>
@@ -57,7 +70,7 @@
                         @endif -->
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Duration Type</label>
                         <select name="duration_type_id" class="form-control">
@@ -73,7 +86,20 @@
                         @endif -->
                     </div>
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Fee</label>
+                        <input type="text" name="fee" value="{{$course->fee}}" class="form-control" pattern="[0-9]+"/>
+                        <!-- @if($errors->first('fee'))
+                            <div class="label label-danger">
+                                {{$errors->first('fee')}}
+                            </div>
+                        @endif -->
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Availability</label>
                         <select name="availability" class="form-control" >

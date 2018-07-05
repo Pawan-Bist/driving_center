@@ -36,7 +36,7 @@ class TrainerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TrainerFormRequest $request)
     {
         $trainer=new Trainer();
         $trainer->first_name=$request->input('first_name');
@@ -47,6 +47,10 @@ class TrainerController extends Controller
         $trainer->address=$request->input('address');
 
         $trainer->save();
+
+        if($request->has('snc')){
+            return redirect('admin/trainers/create');
+        }
 
         return redirect('admin/trainers');
     }
@@ -82,7 +86,7 @@ class TrainerController extends Controller
      * @param  \App\Trainer  $trainer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Trainer $trainer)
+    public function update(TrainerFormRequest $request, Trainer $trainer)
     {
         $trainer->first_name=$request->input('first_name');
         $trainer->last_name=$request->input('last_name');

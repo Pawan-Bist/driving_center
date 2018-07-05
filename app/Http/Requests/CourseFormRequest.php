@@ -24,11 +24,11 @@ class CourseFormRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name'=>'required',
-            // 'fee'=>'required',
-            // //'description'=>'required|min3',
-            // 'duration'=>'required',
-            // 'duration_type'=>'required',  
+            'name'=>'required',
+            'fee'=>'required',
+            'description'=>'required',
+            'duration'=>'required',
+            'duration_type_id'=>'required',
         ];
     }
 }

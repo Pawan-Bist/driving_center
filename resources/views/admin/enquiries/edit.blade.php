@@ -3,7 +3,14 @@
 @section('title', 'Add new enquiry')
 
 @section('content_header')
-    <h1>Add A New Enquiry</h1>
+    <div>
+        <h1>Edit Enquiry</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/enquiries"><i class="fa fa-eye"></i>Enquiries</a></li>
+        <li class="active">Edir</li>
+    </ol>
 @stop
 
 @section('content')
@@ -63,7 +70,7 @@
                         <select name="course_id" class="form-control" >
                             <option value="{{$enquiry->course->id}}">{{$enquiry->course->name}}</option>
                             @foreach ($courses as $course)
-                            <option value="{{$course->id}}">{{$course->name}}</option>
+                            <option value="{{$course->id}}">({{$course->vehicle->name}}) {{$course->name}}</option>
                             @endforeach
                         </select>
                         <!-- @if($errors->first('status'))

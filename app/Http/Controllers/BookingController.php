@@ -8,6 +8,8 @@ use App\Trainer;
 use App\Shift;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\BookingFormRequest;
+
 class BookingController extends Controller
 {
     /**
@@ -42,7 +44,7 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookingFormRequest $request)
     {
         $booking=new Booking();
         $booking->enquiry_id=$request->input('enquiry_id');
@@ -54,6 +56,10 @@ class BookingController extends Controller
         $booking->shift_id=$request->input('shift_id');
 
         $booking->save();
+
+        if($request->has('snc')){
+            return redirect('admin/bookings/create');
+        }
 
         return redirect('admin/bookings');
     }
@@ -92,7 +98,7 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(BookingFormRequest $request, Booking $booking)
     {
         $booking->enquiry_id=$request->input('enquiry_id');
         $booking->trainer_id=$request->input('trainer_id');

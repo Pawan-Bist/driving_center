@@ -3,7 +3,14 @@
 @section('title', 'Edit a shift')
 
 @section('content_header')
-    <h1>Edit a shift</h1>
+    <div>
+        <h1>Edit Shift</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/shifts"><i class="fa fa-dollar"></i>Shifts</a></li>
+        <li class="active">Edit</li>
+    </ol>
 @stop
 
 @section('content')
@@ -13,22 +20,22 @@
                 <div class="form-group">
                     <label>Shift Name</label>
                     <input type="text" name="name" value="{{$shift->name}}" class="form-control"/>
-                    <!-- @if($errors->first('name'))
+                    @if($errors->first('name'))
                         <div class="label label-danger">
                             {{$errors->first('name')}}
                         </div>
-                    @endif -->
+                    @endif
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Shift Code</label>
                     <input type="text" name="code" value="{{$shift->code}}"  class="form-control"/>
-                    <!-- @if($errors->first('code'))
+                    @if($errors->first('code'))
                         <div class="label label-danger">
                             {{$errors->first('code')}}
                         </div>
-                    @endif -->
+                    @endif
                 </div>
             </div>
         </div>
@@ -41,11 +48,11 @@
                             <i class="fa fa-clock-o"></i>
                         </div>
                         <input type="text" name="start" value="{{$shift->start}}"  class="form-control timepicker"/>
-                        <!-- @if($errors->first('start'))
+                        @if($errors->first('start'))
                             <div class="label label-danger">
                                 {{$errors->first('start')}}
                             </div>
-                        @endif -->
+                        @endif
                     </div>
                 </div>
             </div>
@@ -57,11 +64,11 @@
                             <i class="fa fa-clock-o"></i>
                         </div>
                         <input type="text" name="end" value="{{$shift->end}}"  class="form-control"/>
-                        <!-- @if($errors->first('end'))
+                        @if($errors->first('end'))
                             <div class="label label-danger">
                                 {{$errors->first('end')}}
                             </div>
-                        @endif -->
+                        @endif
                     </div>
                 </div>
             </div>

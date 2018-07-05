@@ -1,9 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'index')
+@section('title', 'Courses')
 
 @section('content_header')
-    <h1 class="text-center">Driving Courses</h1>
+    <div>
+        <h1 class="text-center">Driving Courses</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li class="active"><i class="fa fa-copyright"></i> Courses</li>
+    </ol>
+
 @stop
 
 @section('content')
@@ -22,15 +29,16 @@
             <th>Description</th>
             <th>Action</th>
         </tr>
-    @foreach ($courses as $course)
+    @foreach ($courses as $description=>$course)
         <tr>
             <td >{{$course->id}}</td>
-            <td>{{$course->name}}</td>
+            <td>({{$course->vehicle->name}}) {{$course->name}}</td>
             <td>{{$course->fee}}</td>
             <td >{{$course->duration}} ({{$course->durationtype->code}})</td>
             <!-- <td>{{$course->duration}} ({{$course->Durationtype->code}})</td>
             <td>{{$course->duration}} ({{$course->DurationType->code}})</td>
-            <td>{{$course->duration}} ({{$course->durationType->code}})</td> -->
+            <td>{{$course->duration}} ({{$course->durationType->code}})</td> 
+            -->
             <td>
                 @if($course->availability)
                         <label class="label label-success">Available</label>
@@ -53,7 +61,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    {{$course->description}}
+                                    {{$description}}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

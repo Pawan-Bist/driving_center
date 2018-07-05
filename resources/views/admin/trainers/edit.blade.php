@@ -3,7 +3,14 @@
 @section('title', 'Edit Trainer\'s Information')
 
 @section('content_header')
-    <h1>Edit A Trainer</h1>
+    <div>
+        <h1>Edit Trainer</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/trainers"><i class="fa fa-text-width"></i> Trainers</a></li>
+        <li class="active">Edit</li>
+    </ol>
 @stop
 
 @section('content')

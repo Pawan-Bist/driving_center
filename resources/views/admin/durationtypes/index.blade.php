@@ -1,10 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Total shiifts on a day')
+@section('title', 'Duration Types')
 
 @section('content_header')
-    <h1>Add new duration type</h1>
-    <br/>
+    <div>
+        <h1>Duration Types</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li class="active"><i class="fa fa-clock"></i> DurationTypes</li>
+    </ol>
 @stop
 
 @section('content')
@@ -20,16 +25,14 @@
             <th>Code</th>
             <th>Action</th>
         </tr>
-    @foreach ($duration_types as $duration_type)
+    @foreach ($durationtypes as $durationtype)
         <tr>
-            <td>{{$duration_type->id}}</td>
-            <td>{{$duration_type->name}}</td>
-            <td>{{$duration_type->code}}</td>
-            <td>{{$duration_type->start}}</td>
-            <td>{{$duration_type->end}}</td>
+            <td>{{$durationtype->id}}</td>
+            <td>{{$durationtype->name}}</td>
+            <td>{{$durationtype->code}}</td>
             <td>
-                    <form method="post" action="{{url('admin/duration_types/'.$duration_type->id)}}">
-                        <a href="{{url('admin/duration_types/'.$duration_type->id.'/edit')}}" class="btn btn-success btn-xs" title="Edit A duration_type">
+                    <form method="post" action="{{url('admin/durationtypes/'.$durationtype->id)}}">
+                        <a href="{{url('admin/durationtypes/'.$durationtype->id.'/edit')}}" class="btn btn-success btn-xs" title="Edit A duration_type">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
                         {{csrf_field()}}

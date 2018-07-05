@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TrainerFormRequest extends FormRequest
+class ShiftFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,11 @@ class TrainerFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name'=>'required|min:3',
-            'last_name'=>'required|min:3',
-            'email'=>'required|email',
-            'address'=>'required',
-            'contact_no'=>'required',
-            
+            'name'=>'required',
+            // 'code'=>'required|unique:shifts,code',
+            'code'=>'required',
+            'start'=>'required',
+            'end'=>'required'
         ];
     }
 }

@@ -3,8 +3,13 @@
 @section('title', 'Our Trainers')
 
 @section('content_header')
-    <h1>All the trainers</h1>
-    </br>
+    <div>
+        <h1>Trainers</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li class="active"><i class="fa fa-text-width"></i> Trainers</li>
+    </ol>
 @stop
 
 @section('content')

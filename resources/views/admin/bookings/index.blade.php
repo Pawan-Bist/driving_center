@@ -3,8 +3,13 @@
 @section('title', 'Bookings')
 
 @section('content_header')
-    <h1>Total Bookings</h1>
-    <br/>
+    <div >
+        <h1>Bookings</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li class="active"><i class="fa fa-book"></i> Bookings</li>
+    </ol>
 @stop
 
 @section('content')
@@ -30,7 +35,7 @@
         <tr>
             <td>{{$booking->id}}</td>
             <td>{{$booking->enquiry->first_name}}</td>
-            <td>{{$booking->enquiry->course->name}}</td>
+            <td>({{$booking->enquiry->course->vehicle->name}}) {{$booking->enquiry->course->name}}</td>
             <td>{{$booking->trainer->fullName()}}</td>
             <td>{{$booking->shift->code}}</td>
             <td>{{$booking->book_date}}</td>

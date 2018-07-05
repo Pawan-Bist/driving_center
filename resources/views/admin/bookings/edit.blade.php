@@ -3,7 +3,14 @@
 @section('title', 'Edit a booking')
 
 @section('content_header')
-    <h1>Edit a booking</h1>
+    <div >
+        <h1>Edit bookings</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/bookings"><i class="fa fa-book"></i>Bookings</a></li>
+        <li class="active">Edit</li>
+    </ol>
 @stop
 
 @section('content')
@@ -15,7 +22,7 @@
                     <select name="enquiry_id" class="form-control">
                         <option >Select the enquirer:</option>
                         @foreach ($enquirers as $enquirer)
-                        <option value="{{$enquirer->id}}">{{$enquirer->fullName()}} for {{$enquirer->course->name}}</option>
+                        <option value="{{$enquirer->id}}">{{$enquirer->fullName()}} for ({{$enquirer->course->vehicle->name}}) {{$enquirer->course->name}}</option>
                         @endforeach
                     </select>
                     <!-- @if($errors->first('course_id'))

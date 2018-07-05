@@ -32,6 +32,10 @@ Route::group(['prefix'=>'/admin','middleware'=>'auth'],function(){
     Route::resource('/bookings','BookingController');
     //Shifts routing
     Route::resource('/shifts','ShiftController');
+    //Vehicles routing
+    Route::resource('/vehicles','VehicleController');
+    //DurationType routing
+    Route::resource('/durationtypes','DurationTypeController');
     //Dashboard routing
     Route::resource('/dashboard','DashboardController');
 

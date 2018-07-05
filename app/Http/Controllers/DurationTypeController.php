@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DurationType;
 use Illuminate\Http\Request;
+use App\Http\Requests\DurationTypeFormRequest;
 
 class DurationTypeController extends Controller
 {
@@ -14,8 +15,8 @@ class DurationTypeController extends Controller
      */
     public function index()
     {
-        return view('admin/durationtypes.index',[
-            'duration_types'=>DurationTypes::all(),
+        return view('admin.durationtypes.index',[
+            'durationtypes'=>DurationType::all(),
         ]);
     }
 
@@ -26,7 +27,7 @@ class DurationTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.durationtypes.create');
     }
 
     /**
@@ -35,18 +36,27 @@ class DurationTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DurationTypeFormRequest $request)
     {
-        //
+        $durationtype=new DurationType();
+        $durationtype->name=$request->input('name');
+        $durationtype->code=$request->input('code');
+
+        $durationtype->save();
+        if($request->has('snc')){
+            return redirect('admin/durationtypes/create');
+        }
+
+        return redirect('admin/durationtypes');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\DurationType  $durationType
+     * @param  \App\DurationType  $durationtype
      * @return \Illuminate\Http\Response
      */
-    public function show(DurationType $durationType)
+    public function show(DurationType $durationtype)
     {
         //
     }
@@ -54,33 +64,39 @@ class DurationTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DurationType  $durationType
+     * @param  \App\DurationType  $durationtype
      * @return \Illuminate\Http\Response
      */
-    public function edit(DurationType $durationType)
+    public function edit($id)
     {
-        //
+        return view('admin.durationtypes.edit',[
+            'durationtype'=>DurationType::findOrFail($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DurationType  $durationType
+     * @param  \App\DurationType  $durationtype
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DurationType $durationType)
+    public function update(Request $request, DurationType $durationtype)
     {
-        //
+        $durationtype->name=$request->input('name');
+        $durationtype->code=$request->input('code');
+        $durationtype->save();
+
+        return redirect('admin/durationtypes');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DurationType  $durationType
+     * @param  \App\DurationType  $durationtype
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DurationType $durationType)
+    public function destroy(DurationType $durationtype)
     {
         //
     }

@@ -6,6 +6,8 @@ use App\Course;
 use App\Enquiry;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\EnquiryFormRequest;
+
 class EnquiryController extends Controller
 {
     /**
@@ -16,7 +18,8 @@ class EnquiryController extends Controller
     public function index()
     {
         return view('admin.enquiries.index',[
-            'enquiries'=>Enquiry::all()
+            'enquiries'=>Enquiry::all(),
+            'remarks'=>Enquiry::all()->pluck('remarks'),
         ]);
     }
 
@@ -38,7 +41,7 @@ class EnquiryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EnquiryFormRequest $request)
     {
         $enquiry=new Enquiry();
         $enquiry->first_name=$request->input('first_name');
@@ -51,6 +54,9 @@ class EnquiryController extends Controller
         $enquiry->remarks=$request->input('remarks');
 
         $enquiry->save();
+        if($request->has('snc')){
+            return redirect('admin/enquiries/create');
+        }
         return redirect('admin/enquiries');
     }
 

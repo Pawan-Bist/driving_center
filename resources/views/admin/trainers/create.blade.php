@@ -3,7 +3,14 @@
 @section('title', 'Add new trainer')
 
 @section('content_header')
-    <h1>Add New Trainer</h1>
+    <div>
+        <h1>Add Trainer</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/trainers"><i class="fa fa-text-width"></i> Trainers</a></li>
+        <li class="active">Add</li>
+    </ol>
 @stop
 
 @section('content')
@@ -85,6 +92,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" name="snc" class="btn btn-primary">Save and Continue</button>
         <a href="{{url('admin/trainers')}}" class="btn btn-danger">Back</a>
     {!!Form::close()!!}
 @endsection

@@ -3,7 +3,14 @@
 @section('title', 'Add shift')
 
 @section('content_header')
-    <h1>Add new shift to the schedule</h1>
+    <div>
+        <h1>Add Shift</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+        <li><a href="/admin/shifts"><i class="fa fa-dollar"></i>Shifts</a></li>
+        <li class="active">Add</li>
+    </ol>
 @stop
 
 @section('content')
@@ -13,22 +20,22 @@
                 <div class="form-group">
                     <label>Shift Name</label>
                     <input type="text" name="name" class="form-control"/>
-                    <!-- @if($errors->first('name'))
+                    @if($errors->first('name'))
                         <div class="label label-danger">
                             {{$errors->first('name')}}
                         </div>
-                    @endif -->
+                    @endif
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Shift Code</label>
                     <input type="text" name="code" class="form-control"/>
-                    <!-- @if($errors->first('code'))
+                    @if($errors->first('code'))
                         <div class="label label-danger">
                             {{$errors->first('code')}}
                         </div>
-                    @endif -->
+                    @endif
                 </div>
             </div>
         </div>
@@ -42,11 +49,11 @@
                         </div>
                         <input type="text" name="start" class="form-control timepicker" value="" placeholder="now"/>
                     </div>
-                    <!-- @if($errors->first('start'))
+                    @if($errors->first('start'))
                         <div class="label label-danger">
                             {{$errors->first('start')}}
                         </div>
-                    @endif -->
+                    @endif
                 </div>
             </div>
             <div class="col-md-6">
@@ -58,16 +65,16 @@
                         </div>
                         <input type="text" name="end" class="form-control" value="" placeholder="now"/>
                     </div>
-                    <!-- @if($errors->first('end'))
+                    @if($errors->first('end'))
                         <div class="label label-danger">
                             {{$errors->first('end')}}
                         </div>
-                    @endif -->
+                    @endif
                 </div>
             </div>
         </div>
         <button type="submit" class="btn btn-success">Save</button>
-        <button type="submit" class="btn btn-primary" onclick="function(){window.location.reload();}">Save and continue</button>
+        <button type="submit" name="snc" class="btn btn-primary">Save and Continue</button>
         <a href="{{url('admin/shifts')}}" class="btn btn-danger">Back</a>
     {!!Form::close()!!}
 
